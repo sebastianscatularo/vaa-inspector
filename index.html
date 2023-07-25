@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VAA Inspector</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      // Ref: https://github.com/vitejs/vite/issues/7384#issuecomment-1238021322
+      import { Buffer } from "buffer";
+      import Process from "process";
+      globalThis.Buffer = Buffer;
+      globalThis.process = Process;
+  
+      // Ref: https://github.com/vitejs/vite/issues/3409#issuecomment-1140040355
+      window.require = () => { };
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
